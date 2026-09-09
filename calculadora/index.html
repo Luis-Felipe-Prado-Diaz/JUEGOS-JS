@@ -12,7 +12,7 @@
 <body>
   <div class="calculadora">
     <div class="cal-imput">
-      <input type="number" placeholder="7 + 5">
+      <input type="number" id="numero" placeholder="7 + 5">
     </div>
     <div class="buttons-numbers">
       <div class="button-number">
@@ -26,7 +26,7 @@
       </div>
       <div class="button-number">
         <button>4</button>
-      </div>  
+      </div>
       <div class="button-number">
         <button>5</button>
       </div>
@@ -73,5 +73,15 @@
       </div>
     </div>
   </div>
+  <div class="sonido">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <title>music-circle</title>
+      <path
+        d="M16,9V7H12V12.5C11.58,12.19 11.07,12 10.5,12A2.5,2.5 0 0,0 8,14.5A2.5,2.5 0 0,0 10.5,17A2.5,2.5 0 0,0 13,14.5V9H16M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z" />
+    </svg>
+  </div>
+  <audio class="audio" src="./audio/bart-ay-caramba.mp3"></audio>
+  <audio class="audio2" src="./audio/homero-ouch.mp3"></audio>
 </body>
+
 </html>
