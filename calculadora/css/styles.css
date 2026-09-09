@@ -1,0 +1,122 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root{
+  --color-primary: #41A29D;
+  --color-white: #ffffff;
+  --color-calculadora: #F7CF00;
+  --color-gray: #9E9E9E;
+  --color-gray-oscuro: #0092C8;
+  --color-green: #00FF00;
+  --color-blue: #0000FF;
+  --color-yellow: #FFFF00;
+}
+
+body{
+  font-size: 1.5rem;
+  background-image: url('../imagenes/bard-simpsom.png');
+  background-repeat: no-repeat;
+  background-color: var(--color-gray-oscuro);
+  background-position-x: 110vh;
+  background-position-y: bottom;
+  background-attachment: fixed;
+  
+}
+.calculadora {
+  width: 30%;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: var(--color-calculadora);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, max-min(min(100%, 400px)1fr));
+  gap: 10px;
+  min-width: 400px;
+  border: 10px solid #000000;
+  box-shadow: 10px 10px 0px hsl(14, 93%, 53%, 0.5);
+}
+
+.cal-imput {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: 0 5px 0px #F64B18;
+  border: 5px solid #000000;
+}
+
+.cal-imput input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 30px;
+  color: black;
+}
+
+.buttons-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.button-number button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  background-color: var(--color-gray);
+  border-radius: 5px;
+  box-shadow: 0 5px 0px #F64B18;
+  cursor: pointer;
+  border: 5px solid #000000;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.button-number button:hover {
+  background-color: var(--color-gray-oscuro);
+  color: var(--color-white);
+}
+
+.button-number button:active {
+  transform: translateY(-5px);
+}
+
+.buttons-operations  {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.button-operation button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  background-color: var(--color-gray);
+  border-radius: 5px;
+  box-shadow: 0 5px 0px #F64B18;
+  cursor: pointer;
+  border: 5px solid #000000;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.button-operation button:hover {
+  background-color: var(--color-gray-oscuro);
+  color: var(--color-white);
+}
+
+
+.button-operation button:active {
+  transform: translateY(-5px);
+}
