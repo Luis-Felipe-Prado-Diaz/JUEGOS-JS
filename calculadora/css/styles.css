@@ -83,6 +83,8 @@ body {
 .button-number button:hover {
   background-color: var(--color-gray-oscuro);
   color: var(--color-white);
+  transition: all 0.2s ease;
+  transform: translateY(-2px);
 }
 
 .button-number button:active {
@@ -108,11 +110,15 @@ body {
   border: 5px solid #000000;
   font-size: 1.5rem;
   font-weight: 700;
+  transition: all 0.2s ease;
+
 }
 
 .button-operation button:hover {
   background-color: var(--color-gray-oscuro);
   color: var(--color-white);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
 }
 
 .button-operation button:active {
@@ -124,13 +130,19 @@ body {
 }
 
 .sonido svg {
-  width: 10%;
-  height: 10%;
+  width: 100px;
+  height: 100px;
   cursor: pointer;
   position: fixed;
   right: 45vh;
   top: 60vh;
+  border-radius: 50%;
+  background-color: black;
+  padding: 5px;
+  box-shadow: 0 5px 0px #000000;
   z-index: 2;
+  transition: all 0.2s ease;
+  fill: var(--color-calculadora);
 }
 
 .sonido svg:active {
@@ -141,6 +153,25 @@ body {
 .sonido svg:hover {
   transform: scale(1.1);
   transition: all 0.2s ease;
-  fill: var(--color-calculadora);
+  fill: #F64B18;
   background-clip: url('../audio/bart-ay-caramba.mp3');
+}
+
+@media (max-width: 1300px) {
+  body {
+    background-image: none;
+  }
+
+  .calculadora {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  .sonido svg {
+    top: unset;
+    bottom: 10px;
+    width: 110px;
+    height: 110px;
+    left: 30px;
+  }
 }
