@@ -158,9 +158,6 @@ body {
 }
 
 @media (max-width: 1300px) {
-  body {
-    background-image: none;
-  }
 
   .calculadora {
     width: 80%;
