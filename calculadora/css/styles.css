@@ -24,6 +24,33 @@ body {
   z-index: -1;
 }
 
+.imagen-de-fondo{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.homero{
+  top: 0;
+  right: 10vw;
+  width: 60vw;
+  height: 60vw;
+  z-index: -1;
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.rosquilla{
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+}
+
 .calculadora {
   width: 30%;
   margin: 50px auto;
@@ -35,7 +62,7 @@ body {
   gap: 10px;
   min-width: 350px;
   border: 10px solid #000000;
-  box-shadow: 10px 10px 0px hsl(14, 93%, 53%, 0.5);
+  box-shadow: 10px 10px 0px hsl(14, 93%, 53%, 0.8);
 }
 
 .cal-imput {
@@ -167,8 +194,8 @@ body {
   .sonido svg {
     top: unset;
     bottom: 10px;
-    width: 110px;
-    height: 110px;
-    left: 30px;
+    width: 80px;
+    height: 80px;
+    left: 10px;
   }
 }
