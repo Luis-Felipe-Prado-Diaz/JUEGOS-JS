@@ -21,64 +21,59 @@ boton2.forEach(boton2 => {
 });
 
 // funcion para que los botones esten en el input 
-const calculadora = document.querySelector('.calculadora')
+const input = document.querySelector('#numero');
+const calculadora = document.querySelector('.calculadora');
+
+function esOperador(caracter) {
+  return ['+', '-', '*', '/'].includes(caracter);
+}
+
 calculadora.addEventListener('click', (event) => {
-  const input = document.querySelector('#numero');
-  if (event.target.classList.contains('1')) {
-    input.value += 1;
-  }
-  if (event.target.classList.contains('2')) {
-    input.value += 2;
-  }
-  if (event.target.classList.contains('3')) {
-    input.value += 3;
-  }
-  if (event.target.classList.contains('4')) {
-    input.value += 4;
-  }
-  if (event.target.classList.contains('5')) {
-    input.value += 5;
-  }
-  if (event.target.classList.contains('6')) {
-    input.value += 6;
-  }
-  if (event.target.classList.contains('7')) {
-    input.value += 7;
-  }
-  if (event.target.classList.contains('8')) {
-    input.value += 8;
-  }
-  if (event.target.classList.contains('9')) {
-    input.value += 9;
-  }
-  if (event.target.classList.contains('0')) {
-    input.value += 0; 
-  }
-  if (event.target.classList.contains('00')) {
-    input.value += 0.0;
-  }
-  if (event.target.classList.contains('.')) {
-    input.value += '.';
-  }
-  if (event.target.classList.contains('+')) {
-    console.log(input.value)
-    input.value += '+';
-  }
-  if (event.target.classList.contains('-')) {
-    input.value += '-';
-  }
-  if (event.target.classList.contains('*')) {
-    input.value += '*';
-  }
-  if (event.target.classList.contains('/')) {
-    input.value += '/';
-  }
-  if (event.target.classList.contains('C')) {
-    input.value = '';
-  }
-  if (event.target.classList.contains('=')) {
-    input.value = eval(input.value);
+  const boton = event.target.closest('button');
+  if (!boton) return;
+
+  // Números del 1 al 9, el 00 y el punto
+  if (boton.classList.contains('1')) input.value += '1';
+  if (boton.classList.contains('2')) input.value += '2';
+  if (boton.classList.contains('3')) input.value += '3';
+  if (boton.classList.contains('4')) input.value += '4';
+  if (boton.classList.contains('5')) input.value += '5';
+  if (boton.classList.contains('6')) input.value += '6';
+  if (boton.classList.contains('7')) input.value += '7';
+  if (boton.classList.contains('8')) input.value += '8';
+  if (boton.classList.contains('9')) input.value += '9';
+  if (boton.classList.contains('00')) input.value += '00';
+  if (boton.classList.contains('.')) input.value += '.';
+
+  // El 0 no puede ser el primer carácter de un número
+  if (boton.classList.contains('0')) {
+    const ultimoNumero = input.value.split(/[+\-*/]/).pop();
+    if (ultimoNumero === '') return;
+    input.value += '0';
   }
 
-})
+  // Operadores: como la clase YA es el símbolo, se maneja en un solo bloque
+  if (esOperador(boton.className)) {
+    if (input.value === '') return; // no permite operador al inicio
+    const ultimoCaracter = input.value.slice(-1);
+    input.value = esOperador(ultimoCaracter)
+      ? input.value.slice(0, -1) + boton.className // reemplaza el anterior
+      : input.value + boton.className;
+  }
+
+  // Limpiar
+  if (boton.classList.contains('C')) {
+    input.value = '';
+  }
+
+  // Igual
+  if (boton.classList.contains('=')) {
+    if (input.value === '') return;
+    try {
+      input.value = String(Function('"use strict"; return (' + input.value + ')')());
+    } catch {
+      input.value = 'Error';
+    }
+  }
+});
 
