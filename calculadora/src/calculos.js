@@ -45,35 +45,6 @@ calculadora.addEventListener('click', (event) => {
   if (boton.classList.contains('00')) input.value += '00';
   if (boton.classList.contains('.')) input.value += '.';
 
-  // El 0 no puede ser el primer carácter de un número
-  if (boton.classList.contains('0')) {
-    const ultimoNumero = input.value.split(/[+\-*/]/).pop();
-    if (ultimoNumero === '') return;
-    input.value += '0';
-  }
-
-  // Operadores: como la clase YA es el símbolo, se maneja en un solo bloque
-  if (esOperador(boton.className)) {
-    if (input.value === '') return; // no permite operador al inicio
-    const ultimoCaracter = input.value.slice(-1);
-    input.value = esOperador(ultimoCaracter)
-      ? input.value.slice(0, -1) + boton.className // reemplaza el anterior
-      : input.value + boton.className;
-  }
-
-  // Limpiar
-  if (boton.classList.contains('C')) {
-    input.value = '';
-  }
-
-  // Igual
-  if (boton.classList.contains('=')) {
-    if (input.value === '') return;
-    try {
-      input.value = String(Function('"use strict"; return (' + input.value + ')')());
-    } catch {
-      input.value = 'Error';
-    }
-  }
+  
 });
 
