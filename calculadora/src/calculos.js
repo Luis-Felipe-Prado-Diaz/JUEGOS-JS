@@ -19,20 +19,21 @@ boton2.forEach(boton2 => {
     audio2.play('./audio/homero-ouch.mp3');
   });
 });
-
+// ------------------------------------------------
 // funcion para que los botones esten en el input 
+// ------------------------------------------------
 const input = document.querySelector('#numero');
 const calculadora = document.querySelector('.calculadora');
 
 function esOperador(caracter) {
-  return ['+', '-', '*', '/'].includes(caracter);
+  return ['+', '-', '*', '/', '.'].includes(caracter);
 }
 
 calculadora.addEventListener('click', (event) => {
   const boton = event.target.closest('button');
   if (!boton) return;
 
-  // Números del 1 al 9, el 00 y el punto
+  // Números del 1 al 9,
   if (boton.classList.contains('1')) input.value += '1';
   if (boton.classList.contains('2')) input.value += '2';
   if (boton.classList.contains('3')) input.value += '3';
@@ -42,31 +43,32 @@ calculadora.addEventListener('click', (event) => {
   if (boton.classList.contains('7')) input.value += '7';
   if (boton.classList.contains('8')) input.value += '8';
   if (boton.classList.contains('9')) input.value += '9';
-  if (boton.classList.contains('00')) input.value += '00';
-  if (boton.classList.contains('.')) input.value += '.';
 
-   // El 0 no puede ser el primer carácter de un número
   if (boton.classList.contains('0')) {
-    const ultimoNumero = input.value.split(/[+\-*/]/).pop();
-    if (ultimoNumero === '') return;
-    input.value += '0';
+    const ultimoNumero = input.value.split(/[+\-*/.]/).pop();
+    if (ultimoNumero === '') return; else input.value += '0'
   }
 
-  // Operadores: como la clase YA es el símbolo, se maneja en un solo bloque
+  if (boton.classList.contains('00')) {
+    const ultimoNumero = input.value.split(/[+\-*/.]/).pop();
+    if (ultimoNumero === '') return; else input.value += '00'
+  }
+
   if (esOperador(boton.className)) {
-    if (input.value === '') return; // no permite operador al inicio
-    const ultimoCaracter = input.value.slice(-1);
-    input.value = esOperador(ultimoCaracter)
-      ? input.value.slice(0, -1) + boton.className // reemplaza el anterior
-      : input.value + boton.className;
+    if (input.value === '') return;
+    const ultimoCaracter = input.value.slice(-1); 
+    input.value = esOperador(ultimoCaracter) ? input.value.slice(0, -1) + boton.className : input.value + boton.className;
   }
 
-  // Limpiar
+  if (boton.classList.contains('x')) {
+    if (input.value === '') return;
+    input.value = input.value.slice(0, -1);
+  }
+
   if (boton.classList.contains('C')) {
     input.value = '';
   }
 
-  // Igual
   if (boton.classList.contains('=')) {
     if (input.value === '') return;
     try {
