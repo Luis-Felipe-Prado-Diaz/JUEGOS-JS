@@ -19,9 +19,12 @@ boton2.forEach(boton2 => {
     audio2.play('./audio/homero-ouch.mp3');
   });
 });
+
+
 // ------------------------------------------------
 // funcion para que los botones esten en el input 
 // ------------------------------------------------
+
 const input = document.querySelector('#numero');
 const calculadora = document.querySelector('.calculadora');
 
@@ -45,12 +48,12 @@ calculadora.addEventListener('click', (event) => {
   if (boton.classList.contains('9')) input.value += '9';
 
   if (boton.classList.contains('0')) {
-    const ultimoNumero = input.value.split(/[+\-*/.]/).pop();
+    const ultimoNumero = input.value.split(/[+\-*/]/).pop();
     if (ultimoNumero === '') return; else input.value += '0'
   }
 
   if (boton.classList.contains('00')) {
-    const ultimoNumero = input.value.split(/[+\-*/.]/).pop();
+    const ultimoNumero = input.value.split(/[+\-*/]/).pop();
     if (ultimoNumero === '') return; else input.value += '00'
   }
 
@@ -60,6 +63,8 @@ calculadora.addEventListener('click', (event) => {
     input.value = esOperador(ultimoCaracter) ? input.value.slice(0, -1) + boton.className : input.value + boton.className;
   }
 
+ 
+
   if (boton.classList.contains('x')) {
     if (input.value === '') return;
     input.value = input.value.slice(0, -1);
@@ -67,6 +72,13 @@ calculadora.addEventListener('click', (event) => {
 
   if (boton.classList.contains('C')) {
     input.value = '';
+  }
+
+ if (boton.classList.contains('.')) {
+    if (input.value === '') return;
+    const ultimoCaracter = input.value.slice(-1); 
+    input.value = esOperador(ultimoCaracter) ? input.value.slice(0, -1) + boton.className : input.value + boton.className
+    if(esOperador === String('.')) return;
   }
 
   if (boton.classList.contains('=')) {
