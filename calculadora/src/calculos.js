@@ -29,7 +29,7 @@ const input = document.querySelector('#numero');
 const calculadora = document.querySelector('.calculadora');
 
 function esOperador(caracter) {
-  return ['+', '-', '*', '/', '.'].includes(caracter);
+  return ['+', '-', '*', '/',].includes(caracter);
 }
 
 calculadora.addEventListener('click', (event) => {
@@ -75,10 +75,9 @@ calculadora.addEventListener('click', (event) => {
   }
 
  if (boton.classList.contains('.')) {
-    if (input.value === '') return;
-    const ultimoCaracter = input.value.slice(-1); 
-    input.value = esOperador(ultimoCaracter) ? input.value.slice(0, -1) + boton.className : input.value + boton.className
-    if(esOperador === String('.')) return;
+    if(input.value === '' ) input.value = '0.';
+    const ultimoNumero = input.value.split(/[+\-*/]/).pop();
+    if (ultimoNumero.includes('.')) return; else input.value += '.'
   }
 
   if (boton.classList.contains('=')) {
