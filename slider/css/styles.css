@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.carousel {
+  width: 400px;
+  height: 250px;
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-marker-group: after;
+  border-radius: 10px;
+  anchor-name: --carousel;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  scroll-snap-stop: always;
+
+}
+
+.slide:nth-child(1) {
+  background-color: red;
+}
+
+.slide:nth-child(2) {
+  background-color: green;
+}
+
+.slide:nth-child(3) {
+  background-color: blue;
+}
+
+.slide:nth-child(4) {
+  background-color: yellow;
+}
+
+.slide:nth-child(5) {
+  background-color: purple;
+}
+
+.slide::scroll-marker {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  
+}
+
+.slide::scroll-marker:target-current {
+  background: #000;
+}
+
+.carousel::-webkit-scrollbar{
+  display: none;
+}
+
+.carousel::scroll-marker-group {
+  position: fixed;
+  position-anchor: --carousel;
+  top: calc(anchor(bottom) + 14px);
+  left: anchor(center);
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
