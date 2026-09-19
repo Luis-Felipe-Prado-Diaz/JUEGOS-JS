@@ -4,7 +4,14 @@
 
 body {
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+/* todo lo demas es el slider con puntos. 
+esto es un anchor name (es como un nombre que le ponemos a un elemento para podernos referir a el) y se usa mucho con los scroll markers*/
 
 .carousel {
   width: 400px;
@@ -18,7 +25,7 @@ body {
   scroll-behavior: smooth;
   overscroll-behavior-x: contain;
   scroll-snap-stop: always;
-
+  anchor-name: --my-carousel; /* esto va con el slider con flechas */
 }
 
 .slide:nth-child(1) {
@@ -48,16 +55,18 @@ body {
   border-radius: 50%;
   background: #ccc;
   cursor: pointer;
-  
+
 }
 
 .slide::scroll-marker:target-current {
   background: #000;
 }
 
-.carousel::-webkit-scrollbar{
+.carousel::-webkit-scrollbar {
   display: none;
 }
+
+/* eliminar esto para que solo sea de flechas  */
 
 .carousel::scroll-marker-group {
   position: fixed;
@@ -75,4 +84,43 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+/* de aqui para abajo es para hacer un slider con flechas, eliminalo si quieres un slider con puntos solo */
+
+.carousel::scroll-button(*) {
+  border: 0;
+  font-size: 2rem;
+  background: none;
+  color: black;
+  opacity: 0.7;
+  cursor: pointer;
+  position: absolute;
+  position-anchor: --my-carousel;
+  align-self: anchor-center;
+}
+
+.carousel::scroll-button(*):hover,
+.carousel::scroll-button(*):focus {
+  opacity: 1;
+}
+
+.carousel::scroll-button(*):active {
+  translate: 1px 1px;
+}
+
+.carousel::scroll-button(*):disabled {
+  opacity: 0.2;
+  cursor: unset;
+}
+
+.carousel::scroll-button(left) {
+  content: "◄";
+  right: calc(anchor(left) - 45px);
+}
+
+.carousel::scroll-button(right) {
+  content: "►";
+  left: calc(anchor(right) - 45px);
 }
