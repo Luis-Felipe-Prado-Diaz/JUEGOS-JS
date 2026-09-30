@@ -33,7 +33,7 @@ body {
   top: 100%;
   width: 0;
   height: 7px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'  width='16' height='7' %3E%3Cpath d='M0 3.5 Q4 0 8 3.5 T16 3.5' fill='none' stroke='%23f5d623' stroke-width='1.6'   /%3E%3C/svg%3E" );
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'  width='7' height='7' %3E%3Cpath d='M0 3.5 Q4 0 8 3.5 T16 3.5' fill='none' stroke='%23f5d623' stroke-width='1.6'   /%3E%3C/svg%3E");
   background-repeat: repeat-x;
   transition: width 0.3s ease;
 }

@@ -4,13 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #000;
-}
 
 .box {
   position: relative;
@@ -33,7 +26,6 @@ body {
       cyan 15%,
       transparent 30%);
   animation: spin 3s infinite linear;
-
 }
 
 .box::after {

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="./src/index.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Formulario de inicio de sesión</title>
+</head>
+
+<body>
+  <main>
+    <!-- formulario de inicio de sesion -->
+    <section class="formulario">
+      <div class="login hidden">
+        <div class="titulo-formulario">
+          <h1>Inicio de sesión</h1>
+        </div>
+        <form action="">
+          <div class="campo-formulario">
+            <div class="formulario-label">
+              <label for="login-usuario">Usuario</label>
+            </div>
+            <div class="formulario-input">
+              <input type="text" id="login-usuario" name="login-usuario" placeholder="Ingrese su usuario" required>
+            </div>
+          </div>
+          <div class="campo-formulario">
+            <div class="formulario-label">
+              <label for="login-contrasena">Contraseña</label>
+            </div>
+            <div class="formulario-input">
+              <input type="password" id="login-contrasena" name="login-contrasena" placeholder="Ingrese su contraseña" required>
+            </div>
+          </div>
+          <div class="boton-enviar">
+            <button type="submit">Iniciar sesión</button>
+          </div>
+          <div class="otros-botones">
+            <a href="" id="registrarse">Registrarse</a>
+            <a href="">¿Olvidaste tu contraseña?</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- formulario de registro -->
+
+      <div class="registro">
+        <div class="titulo-formulario">
+          <h1>Registro</h1>
+        </div>
+        <form action="">
+        <div class="campo-formulario">
+          <div class="formulario-label">
+            <label for="registro-usuario">Usuario</label>
+          </div>
+          <div class="formulario-input">
+            <input type="text" id="registro-usuario" name="registro-usuario" placeholder="Elija su nombre de usuario" required>
+          </div>
+        </div>
+        <div class="campo-formulario">
+          <div class="formulario-label">
+            <label for="registro-contrasena">Contraseña</label>
+          </div>
+          <div class="formulario-input">
+            <input type="password" id="registro-contrasena" name="registro-contrasena" placeholder="Elija una contraseña" required>
+          </div>
+        </div>
+        <div class="campo-formulario">
+          <div class="formulario-label">
+            <label for="registro-confirmar-contrasena">Confirmar contraseña</label>
+          </div>
+          <div class="formulario-input">
+            <input type="password" id="registro-confirmar-contrasena" name="registro-confirmar-contrasena"
+              placeholder="Confirme su contraseña" required>
+          </div>
+        </div>
+        <div class="boton-enviar">
+          <button type="submit">Registrarse</button>
+        </div>
+        <div class="otros-botones">
+          <a href="" id="login">¿Ya tienes una cuenta?</a>
+        </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>

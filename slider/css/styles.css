@@ -25,7 +25,7 @@ esto es un anchor name (es como un nombre que le ponemos a un elemento para pode
   scroll-behavior: smooth;
   overscroll-behavior-x: contain;
   scroll-snap-stop: always;
-  anchor-name: --my-carousel; /* esto va con el slider con flechas */
+  /* anchor-name: --my-carousel; esto va con el slider con flechas */
 }
 
 .slide:nth-child(1) {
@@ -89,7 +89,7 @@ esto es un anchor name (es como un nombre que le ponemos a un elemento para pode
 
 /* de aqui para abajo es para hacer un slider con flechas, eliminalo si quieres un slider con puntos solo */
 
-.carousel::scroll-button(*) {
+/* .carousel::scroll-button(*) {
   border: 0;
   font-size: 2rem;
   background: none;
@@ -123,4 +123,4 @@ esto es un anchor name (es como un nombre que le ponemos a un elemento para pode
 .carousel::scroll-button(right) {
   content: "►";
   left: calc(anchor(right) - 45px);
-}
+} */

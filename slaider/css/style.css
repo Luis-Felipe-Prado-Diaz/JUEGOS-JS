@@ -14,7 +14,6 @@ main {
 }
 
 .scene {
-
   position: relative;
   width: min(88vw, 620px);
   aspect-ratio: 3 / 2;
